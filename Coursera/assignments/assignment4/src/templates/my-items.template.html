@@ -1,0 +1,6 @@
+<h3>Items ({{$ctrl.items.length}})</h3>
+<ul>
+  <li ng-repeat="item in $ctrl.items" title="{{item.description}}">
+    {{item.name}}: ${{item.price_large}} <span ng-if="item.price_small != null"> - ${{item.price_small}}</span>
+  </li>
+</ul>

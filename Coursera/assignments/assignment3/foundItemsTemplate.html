@@ -1,0 +1,26 @@
+<h3 ng-if="ctrl.foundItems.length === 0">
+  Nothing found
+</h3>
+
+<table ng-if="ctrl.foundItems.length > 0">
+  <thead>
+    <tr>
+      <th style="width: 30px;"></th>
+      <th>Name</th>
+      <th>Description</th>
+      <th style="width: 120px;">Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="foundItem in ctrl.foundItems">
+      <td>{{$index + 1}}</td>
+      <td>{{foundItem.name}}</td>
+      <td>{{foundItem.description}}</td>
+      <td>
+        <span class="largePrice" ng-if="foundItem.price_large !== null">${{foundItem.price_large}}</span>
+        <span class="smallPrice" ng-if="foundItem.price_small !== null">- ${{foundItem.price_small}}</span>
+      <td><button title="Don't want this one!" ng-click="ctrl.onRemove({idx: $index});">X</button></td>
+    </tr>
+  </tbody>
+</table>

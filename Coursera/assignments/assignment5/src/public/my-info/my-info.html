@@ -1,0 +1,25 @@
+<div class="container">
+  <h2 id="my-info-title" class="text-center">My Info</h2>
+  <div ng-if="myInfoCtrl.signUpData != null">
+    <div class="row text-center">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <h4>{{ myInfoCtrl.signUpData.firstName }} {{ myInfoCtrl.signUpData.lastName }}</h4>
+        <h4>{{ myInfoCtrl.signUpData.emailAddress }}</h4>
+        <h4>{{ myInfoCtrl.signUpData.phoneNumber }}</h4>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row" style="margin-top: 15px;">
+      <div class="col-md-3"></div>
+      <menu-item menu-item="myInfoCtrl.signUpData.menuItem"></menu-item>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+
+  <div ng-if="myInfoCtrl.signUpData == null">
+    <div class="row text-center">
+      Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+    </div>
+  </div>
+</div>

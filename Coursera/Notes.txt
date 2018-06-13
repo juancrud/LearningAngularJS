@@ -1,0 +1,13 @@
+browser-sync start --server --directory --files "**/*"
+
+
+Instrucciones:
+git add .
+git commit -m "Mensaje"
+git push
+
+
+
+
+
+

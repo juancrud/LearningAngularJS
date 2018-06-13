@@ -1,0 +1,52 @@
+<div class="container">
+  <h2 id="sign-up-title" class="text-center">Sign Up</h2>
+
+  <form name='signUpForm' novalidate>
+    <div ng-if="signUpCtrl.showSuccess" class="alert alert-success">
+      Your information has been saved.
+    </div>
+
+    <div class="form-group">
+      <label>First Name: </label>
+      <input type="text" name="firstName" placeholder="" ng-model="signUpCtrl.firstName" required />
+      <span ng-if="signUpForm.firstName.$touched && signUpForm.firstName.$error.required">
+        First Name is required
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>Last Name: </label>
+      <input type="text" name="lastName" placeholder="" ng-model="signUpCtrl.lastName" required />
+      <span ng-if="signUpForm.lastName.$touched && signUpForm.lastName.$error.required">
+        Last Name is required
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>Email Address: </label>
+      <input type="email" name="emailAddress" placeholder="xxxx@xxxx.xxx" ng-model="signUpCtrl.emailAddress" required />
+      <span ng-if="signUpForm.emailAddress.$touched && signUpForm.emailAddress.$invalid">
+        Must be a valid email address: handle@domain format
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>Phone Number: </label>
+      <input type="text" name="phoneNumber" placeholder="###-###-####" ng-model="signUpCtrl.phoneNumber" pattern="(\d{3})-(\d{3})-(\d{4})">
+      <span ng-if="signUpForm.phoneNumber.$touched && signUpForm.phoneNumber.$invalid">
+        Phone must be in the format ###-###-####.
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>Favorite Dish: </label>
+      <input type="text" name="favoriteDish" placeholder="X#" ng-model="signUpCtrl.favoriteDish" ng-blur="signUpCtrl.validateMenuItem()">
+      <span ng-if="signUpCtrl.menuItem == null">
+        No such menu number exists.
+      </span>
+    </div>
+
+    <button class="btn btn-primary" ng-disabled="signUpForm.$invalid || signUpCtrl.menuItem == null" ng-click="signUpCtrl.submit()">Submit</button>
+  </form>
+
+</div>
